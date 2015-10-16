@@ -1,0 +1,15 @@
+
+
+<body background="http://i.ytimg.com/vi/4W_XSesRW84/maxresdefault.jpg">
+<h1> More information about your account</h1>
+
+<ul>
+	<li><strong> User Name:</strong><%= @user.username %></li>
+	<li><strong> First Name:</strong><%= @user.fname %></li>
+	<li><strong> Last Name: </strong><%= @user.lname %></li>
+</ul>
+<hr>
+<%= link_to 'Home', home_path %>
+<br>
+<%= link_to 'All Users', users_path %>
+</body>

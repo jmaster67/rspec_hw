@@ -1,0 +1,22 @@
+edit.html.erb
+<body background="http://i.ytimg.com/vi/4W_XSesRW84/maxresdefault.jpg">
+<h1> Update your account </h1>
+
+<%=form_for @user do |f|  %>
+	<%= f.label :fname %>
+	<%= f.text_field :fname %>
+	<%= f.label :lname %>
+	<%= f.text_field :lname %>
+	<%= f.label :username %>
+	<%= f.text_field :username %>
+	<%= f.submit %>
+
+	
+<% end %>
+
+<hr>
+
+<%= link_to 'Home ', home_path %>
+<br>
+<%= link_to 'All Users', users_path %>
+</body>

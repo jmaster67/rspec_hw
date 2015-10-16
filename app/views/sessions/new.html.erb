@@ -1,0 +1,10 @@
+
+<body background="http://i.ytimg.com/vi/4W_XSesRW84/maxresdefault.jpg">
+
+<h1> Please login </h1>
+
+<%= form_tag login_path do %> 
+	<%=label_tag :username %>  
+	<%=text_field_tag :username %>  
+    <%=submit_tag("login") %> 
+<% end %>
