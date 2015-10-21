@@ -6,14 +6,19 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
 
+<body background="http://i.ytimg.com/vi/4W_XSesRW84/maxresdefault.jpg">
 
 <% if flash[:success] %>
     <h1 class="flash-notice">
       <%= flash[:success] %>
       <% end %>
     </h1>
+
+   <% if flash[:notice] %>
+   	<%= flash[:notice] %>
+   	<% end %>
+   
 
 
 <%= yield %>

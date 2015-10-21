@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users
   resources :posts
   resources :sessions
+  resources :comments, shallow: true, only: [:create, :destroy]
 
   get '/login', to: "sessions#new", as: "login"
   post   'login'   => 'sessions#create'

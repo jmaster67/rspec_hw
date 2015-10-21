@@ -1,0 +1,34 @@
+show.html.erb
+
+<p>
+  <strong>User:</strong>
+<%= @post.user.username %>
+ 
+<p>
+  <strong>Post:</strong>
+  <%= @post.body %>
+</p>
+
+
+<% if current_user %>
+<strong>Leave A Comment: </strong>
+<%= form_for @comment do |f| %>
+	<%= f.text_area :body, placeholder: "Enter comment here" %>
+	<%= f.hidden_field :post_id , :value => @post.id %>
+	<br>
+	<%= f.submit :class => 'submit' %>
+	<% end %>
+<% end %>
+
+<% @post.comments.order(created_at: :desc).each do |c|%> <br> 
+	<p><%= c.body %></p>
+	<p> <strong>from: <%= c.user.username %></strong></p>
+	<p><%= c.created_at.strftime("at %I:%M%p on %m/%d/%Y") %></p>
+	<% end %>
+
+<%= link_to 'Edit', edit_post_path(@post) %> 
+<br>|
+<%= link_to 'Back', posts_path %>
+<br>
+<%= link_to 'Home', home_path %>
+
