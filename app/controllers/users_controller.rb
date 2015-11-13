@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    #@users = User.with_last_name_masterson
   end
 
   def show
@@ -17,13 +18,13 @@ class UsersController < ApplicationController
   end
 
   def create
-  	@user = User.new params[:user]
-    if @user.save
-      flash[:success] = "You have gained access to JSA!"
+  	@user = User.create(user_params)
+    #if @user.save
+      #flash[:success] = "You have gained access to JSA!"
       redirect_to home_path
-    else
-      render 'new'
-    end
+    #else
+      #render 'new'
+    #end
   end
 
   def update
@@ -36,5 +37,9 @@ class UsersController < ApplicationController
   	@user = User.find(params[:id])
   	@user.destroy
   	redirect_to users_path 
+  end
+
+  def user_params    
+   params.require(:user).permit(:fname, :lname, :username)   
   end
 end

@@ -17,6 +17,7 @@ show.html.erb
 	<%= f.hidden_field :post_id , :value => @post.id %>
 	<br>
 	<%= f.submit :class => 'submit' %>
+	<%= time %>
 	<% end %>
 <% end %>
 
@@ -24,6 +25,8 @@ show.html.erb
 	<p><%= c.body %></p>
 	<p> <strong>from: <%= c.user.username %></strong></p>
 	<p><%= c.created_at.strftime("at %I:%M%p on %m/%d/%Y") %></p>
+	
+	<hr>
 	<% end %>
 
 <%= link_to 'Edit', edit_post_path(@post) %> 
